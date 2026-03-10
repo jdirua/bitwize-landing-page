@@ -9,10 +9,10 @@ import {
 } from 'react-icons/fa'
 
 const socialLinks = [
-  { 
-    name: 'GitHub', 
-    icon: <FaGithub />, 
-    url: 'https://github.com/jdirua' 
+  {
+    name: 'GitHub',
+    icon: <FaGithub />,
+    url: 'https://github.com/jdirua',
   },
   // Add other social links here once available
   // {

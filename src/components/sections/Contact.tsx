@@ -7,7 +7,9 @@ const Contact = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submissionStatus, setSubmissionStatus] = useState<'success' | 'error' | null>(null)
+  const [submissionStatus, setSubmissionStatus] = useState<
+    'success' | 'error' | null
+  >(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -62,7 +64,10 @@ const Contact = () => {
               />
             </div>
             <div className='mb-4'>
-              <label htmlFor='email' className='block text-white font-bold mb-2'>
+              <label
+                htmlFor='email'
+                className='block text-white font-bold mb-2'
+              >
                 Email
               </label>
               <input
@@ -75,7 +80,10 @@ const Contact = () => {
               />
             </div>
             <div className='mb-4'>
-              <label htmlFor='message' className='block text-white font-bold mb-2'>
+              <label
+                htmlFor='message'
+                className='block text-white font-bold mb-2'
+              >
                 Message
               </label>
               <textarea

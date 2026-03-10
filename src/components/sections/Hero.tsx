@@ -30,7 +30,10 @@ const Hero = () => {
           className='text-lg md:text-xl text-gray mb-8 max-w-2xl fade-in-up'
           style={{ animationDelay: '0.4s' }}
         >
-          To empower businesses and individuals with cutting-edge digital solutions that drive growth, enhance operational efficiency, and create seamless user experiences. Bitwise Technologies bridge the gap between complex technology and real-world business needs.
+          To empower businesses and individuals with cutting-edge digital
+          solutions that drive growth, enhance operational efficiency, and
+          create seamless user experiences. Bitwise Technologies bridge the gap
+          between complex technology and real-world business needs.
         </p>
         <div
           className='cta-buttons fade-in-up'
