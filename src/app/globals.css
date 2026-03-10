@@ -1,18 +1,19 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* Custom colors from your blueprint */
   --color-deep-space: #1a1a2e;
   --color-surface: #2a2a4a;
+  --color-glass-surface: #222;
   --color-purple: #7877c6;
   --color-cyan: #89ddff;
   --color-gray: #a9a9a9;
   --color-white: #ffffff;
-  
+
   /* Font configuration */
   --font-family-sans: var(--font-geist-sans), sans-serif;
   --font-family-mono: var(--font-geist-mono), monospace;
-  
+
   /* Fluid typography using CSS variables */
   --text-h1: clamp(2.5rem, 5vw, 4rem);
   --text-h2: clamp(2rem, 4vw, 3rem);
@@ -30,20 +31,18 @@ body {
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
-  /* From Layer 3 background */
-  background-image:
-    radial-gradient(circle 3px at 15% 25%, var(--color-cyan) 30%, transparent 70%),
-    radial-gradient(circle 4px at 85% 35%, var(--color-cyan) 25%, transparent 70%),
-    radial-gradient(circle 3.5px at 40% 80%, var(--color-cyan) 35%, transparent 70%),
-    /* faint code brackets */
-    linear-gradient(90deg, transparent 48%, rgba(137,221,255,0.15) 49%, rgba(137,221,255,0.15) 51%, transparent 52%),
-    linear-gradient(90deg, transparent 52%, rgba(137,221,255,0.12) 53%, rgba(137,221,255,0.12) 55%, transparent 56%);
-  background-size: 800px 800px, 900px 900px, 700px 700px, 1000px 1000px, 1100px 1100px;
-  background-position: 10% 20%, 75% 30%, 35% 75%, 20% 60%, 80% 40%;
-  background-repeat: no-repeat;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.textured-background {
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-sans);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -59,15 +58,6 @@ h2 {
 
 h3 {
   font-size: var(--text-h3);
-}
-
-@keyframes grid-scroll {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
 }
 
 @keyframes fade-in-down {
@@ -100,26 +90,13 @@ h3 {
   animation: fade-in-up 1s ease-in-out forwards;
 }
 
-.animated-grid-background {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-  animation: grid-scroll 20s linear infinite;
-}
-
-.animated-grid-gradient {
-  background-image: linear-gradient(to top, var(--color-deep-space), transparent);
-}
-
-
 /* Component styles */
-
 .main-nav {
   display: none;
 }
 
 .card-glass {
-  background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+  background-color: color-mix(in srgb, var(--color-glass-surface) 10%, transparent);
   backdrop-filter: blur(12px);
   border: 1px solid color-mix(in srgb, var(--color-white) 10%, transparent);
   border-radius: 1rem;
@@ -148,7 +125,8 @@ h3 {
 
 .btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px -5px color-mix(in srgb, var(--color-cyan) 30%, transparent);
+  box-shadow: 0 10px 25px -5px
+    color-mix(in srgb, var(--color-cyan) 30%, transparent);
 }
 
 .btn-secondary {
@@ -273,84 +251,230 @@ h3 {
 }
 
 /* ======================
-   Global Tech Textured Background (circuit + waves approximation)
+   AUTHENTIC CIRCUIT BOARD BACKGROUND
+   Using SVG for organic traces and glowing nodes
    ====================== */
 
 /* Background layers using pseudo-elements */
-body::before,
-body::after {
-  content: "";
+.textured-background::before,
+.textured-background::after {
+  content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -2;
 }
 
-/* Layer 1: Subtle circuit board grid + glow spots */
-body::before {
-  background:
-    /* faint vertical/horizontal circuit traces */
-    repeating-linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 4%,
-      rgba(137, 221, 255, 0.04) 4.2%,
-      transparent 4.5%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0%,
-      transparent 4%,
-      rgba(137, 221, 255, 0.04) 4.2%,
-      transparent 4.5%
-    ),
-    /* soft glowing areas */
-    radial-gradient(
-      ellipse at 30% 40%,
-      rgba(137, 221, 255, 0.08) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 70% 70%,
-      rgba(120, 119, 198, 0.06) 0%,
-      transparent 50%
-    );
-  background-size: 60px 60px, 60px 60px, 200% 200%, 180% 180%;
-  background-position: 0 0, 0 0, 20% 30%, 80% 70%;
-  animation: slow-drift 90s linear infinite;
+/* Main circuit board layer - SVG pattern with organic traces */
+.textured-background::before {
+  background-image: url("/circuit-background.svg");
+  background-repeat: repeat;
+  opacity: 0.5;
 }
 
-/* Layer 2: Flowing cyan waves */
-body::after {
+/* Second layer: Atmospheric glow and wave effects */
+.textured-background::after {
   background:
+    /* Large soft glow areas */
+    radial-gradient(ellipse at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 70%, rgba(137, 221, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(137, 221, 255, 0.08) 0%, transparent 60%),
+    
+    /* Flowing cyan waves - very subtle */
     linear-gradient(
       135deg,
       transparent 30%,
-      rgba(137, 221, 255, 0.12) 45%,
-      rgba(137, 221, 255, 0.08) 55%,
+      rgba(137, 221, 255, 0.08) 45%,
+      rgba(137, 221, 255, 0.05) 55%,
       transparent 70%
     ),
     linear-gradient(
       45deg,
       transparent 40%,
-      rgba(137, 221, 255, 0.09) 50%,
+      rgba(137, 221, 255, 0.06) 50%,
       transparent 60%
     );
-  background-size: 300% 300%, 250% 250%;
-  background-position: 0% 0%, 100% 100%;
-  animation: wave-flow 40s ease-in-out infinite alternate,
-             slow-drift 120s linear infinite;
-  opacity: 0.7;
-  filter: blur(1.5px);
+  
+  background-size:
+    100% 100%, 100% 100%, 100% 100%,
+    300% 300%,
+    250% 250%;
+  
+  background-position:
+    0% 0%, 0% 0%, 0% 0%,
+    0% 0%,
+    100% 100%;
+  
+  animation:
+    glow-drift 30s ease-in-out infinite alternate,
+    wave-flow 40s ease-in-out infinite alternate,
+    slow-drift 120s linear infinite;
+  
+  opacity: 0.6;
+  filter: blur(2px);
+  mix-blend-mode: screen;
 }
 
 /* Animations */
+@keyframes glow-drift {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 20% 30%, 70% 60%;
+  }
+  100% {
+    background-position: 5% 10%, 10% 5%, -5% -5%, 40% 50%, 30% 40%;
+  }
+}
+
 @keyframes slow-drift {
-  0%   { background-position: 0% 0%, 0% 0%, 20% 30%, 80% 70%, 10% 20%, 75% 30%, 35% 75%, 20% 60%, 80% 40%; }
-  100% { background-position: 100% 100%, 50% 50%, 60% 80%, 30% 40%, 90% 70%, 15% 85%, 60% 25%, 5% 90%, 95% 10%; }
+  0% {
+    background-position: 0% 0%, 100% 100%;
+  }
+  100% {
+    background-position: 10% 20%, 90% 80%;
+  }
 }
 
 @keyframes wave-flow {
-  0%   { background-position: 0% 50%, 100% 50%; }
-  100% { background-position: 100% 50%, 0% 50%; }
+  0% {
+    background-position: 0% 50%, 100% 50%;
+  }
+  100% {
+    background-position: 100% 50%, 0% 50%;
+  }
+}
+
+/* Floating tech icon animations */
+@keyframes icon-float-1 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-2vw) translateY(5vh) rotate(-5deg); }
+  50% { transform: translateX(2vw) translateY(-5vh) rotate(5deg); }
+  75% { transform: translateX(1vw) translateY(3vh) rotate(-2deg); }
+}
+
+@keyframes icon-float-2 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(3vw) translateY(-4vh) rotate(3deg); }
+  50% { transform: translateX(-3vw) translateY(4vh) rotate(-3deg); }
+  75% { transform: translateX(-2vw) translateY(-2vh) rotate(6deg); }
+}
+
+@keyframes icon-float-3 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-1vw) translateY(-6vh) rotate(4deg); }
+  50% { transform: translateX(1vw) translateY(6vh) rotate(-4deg); }
+  75% { transform: translateX(3vw) translateY(-3vh) rotate(2deg); }
+}
+
+@keyframes icon-float-4 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(2vw) translateY(-3vh) rotate(-2deg); }
+  50% { transform: translateX(-2vw) translateY(3vh) rotate(2deg); }
+  75% { transform: translateX(-1vw) translateY(-2vh) rotate(4deg); }
+}
+
+@keyframes icon-float-5 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-3vw) translateY(2vh) rotate(5deg); }
+  50% { transform: translateX(3vw) translateY(-2vh) rotate(-5deg); }
+  75% { transform: translateX(2vw) translateY(1vh) rotate(-3deg); }
+}
+
+@keyframes icon-float-6 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(1vw) translateY(4vh) rotate(-6deg); }
+  50% { transform: translateX(-1vw) translateY(-4vh) rotate(6.deg); }
+  75% { transform: translateX(-3vw) translateY(2vh) rotate(3deg); }
+}
+
+@keyframes icon-float-7 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(2vw) translateY(-2vh) rotate(3deg); }
+  50% { transform: translateX(-2vw) translateY(2vh) rotate(-3deg); }
+  75% { transform: translateX(1vw) translateY(-1vh) rotate(5deg); }
+}
+
+@keyframes icon-float-8 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-2.5vw) translateY(3vh) rotate(-4deg); }
+  50% { transform: translateX(2.5vw) translateY(-3vh) rotate(4deg); }
+  75% { transform: translateX(1.5vw) translateY(2vh) rotate(-2deg); }
+}
+
+@keyframes icon-float-9 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(1.5vw) translateY(-4vh) rotate(6deg); }
+  50% { transform: translateX(-1.5vw) translateY(4vh) rotate(-6deg); }
+  75% { transform: translateX(-2vw) translateY(2vh) rotate(3deg); }
+}
+
+@keyframes icon-float-10 {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-2vw) translateY(-3vh) rotate(-2deg); }
+  50% { transform: translateX(2vw) translateY(3vh) rotate(2deg); }
+  75% { transform: translateX(1vw) translateY(-2vh) rotate(-4deg); }
+}
+
+.icon-float-1, .icon-float-2, .icon-float-3, .icon-float-4, .icon-float-5, .icon-float-6, .icon-float-7, .icon-float-8, .icon-float-9, .icon-float-10 {
+  position: absolute;
+  color: rgba(120, 119, 198, 0.25);
+}
+
+.icon-float-1 {
+  top: 15%;
+  left: 10%;
+  animation: icon-float-1 35s infinite ease-in-out;
+}
+
+.icon-float-2 {
+  top: 50%;
+  left: 80%;
+  animation: icon-float-2 40s infinite ease-in-out;
+}
+
+.icon-float-3 {
+  top: 85%;
+  left: 30%;
+  animation: icon-float-3 30s infinite ease-in-out;
+}
+
+.icon-float-4 {
+  top: 30%;
+  left: 60%;
+  animation: icon-float-4 38s infinite ease-in-out;
+}
+
+.icon-float-5 {
+  top: 70%;
+  left: 5%;
+  animation: icon-float-5 42s infinite ease-in-out;
+}
+
+.icon-float-6 {
+  top: 5%;
+  left: 40%;
+  animation: icon-float-6 33s infinite ease-in-out;
+}
+
+.icon-float-7 {
+  top: 25%;
+  left: 85%;
+  animation: icon-float-7 36s infinite ease-in-out;
+}
+
+.icon-float-8 {
+  top: 60%;
+  left: 20%;
+  animation: icon-float-8 45s infinite ease-in-out;
+}
+
+.icon-float-9 {
+  top: 90%;
+  left: 70%;
+  animation: icon-float-9 32s infinite ease-in-out;
+}
+
+.icon-float-10 {
+  top: 5%;
+  left: 5%;
+  animation: icon-float-10 48s infinite ease-in-out;
 }

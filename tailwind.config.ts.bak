@@ -1,0 +1,62 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // Deep space theme colors from blueprint
+        'deep-space': '#0a0a1a',
+        'surface': '#1a1a2e',
+        'surface-light': '#2a2a4a',
+        'cyan': '#0ff',
+        'cyan-dark': '#00ccff',
+        'purple': '#b300ff',
+        'purple-dark': '#9900cc',
+        'gray-soft': '#b0b0b0',
+        'white': '#ffffff',
+      },
+      fontFamily: {
+        // Using Geist as the sans font (clean, modern)
+        sans: ['var(--font-geist-sans)', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'monospace'],
+        // For headings (bold, modern)
+        heading: ['var(--font-geist-sans)', 'sans-serif'],
+      },
+      fontSize: {
+        // Fluid typography scale
+        'h1': 'clamp(2.5rem, 5vw, 4rem)',
+        'h2': 'clamp(2rem, 4vw, 3rem)',
+        'h3': 'clamp(1.5rem, 3vw, 2rem)',
+        'body': 'clamp(1rem, 2vw, 1.125rem)',
+        'small': 'clamp(0.875rem, 1.5vw, 1rem)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-primary': 'linear-gradient(135deg, #0ff 0%, #b300ff 100%)',
+        'hero-gradient': 'radial-gradient(ellipse 80% 80% at 50% -20%, rgba(0, 255, 255, 0.2), rgba(179, 0, 255, 0.1), rgba(10, 10, 26, 0))',
+      },
+      animation: {
+        'scale-up': 'scaleUp 0.2s ease-in-out forwards',
+        'glow': 'glow 2s ease-in-out infinite',
+      },
+      keyframes: {
+        scaleUp: {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.05)' },
+        },
+        glow: {
+          '0%, 100%': { boxShadow: '0 0 5px rgba(0, 255, 255, 0.5)' },
+          '50%': { boxShadow: '0 0 20px rgba(0, 255, 255, 0.8)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
