@@ -32,7 +32,7 @@ const Hero = () => {
         >
           To empower businesses and individuals with cutting-edge digital
           solutions that drive growth, enhance operational efficiency, and
-          create seamless user experiences. Bitwise Technologies bridge the gap
+          create seamless user experiences. Bitwize Technologies bridge the gap
           between complex technology and real-world business needs.
         </p>
         <div

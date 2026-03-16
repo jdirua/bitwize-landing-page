@@ -38,7 +38,7 @@ const services = [
     icon: <FaWrench size={40} className='text-purple' />,
     title: 'Custom Solutions',
     description:
-      'I understand that every client’s challenge is unique. We offer tailored packages and bespoke engineering to meet your specific technical and business requirements.',
+      'We understand that every client’s challenge is unique. We offer tailored packages and bespoke engineering to meet your specific technical and business requirements.',
   },
 ]
 

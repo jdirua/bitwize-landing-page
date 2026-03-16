@@ -14,7 +14,7 @@ const features = [
     icon: <FaStar size={40} className='text-purple' />,
     title: 'Integrated Expertise',
     description:
-      'My unique combination of web, e-commerce, IT, and electronics engineering allows me to tackle complex, multi-faceted projects that other single-focus tech agencies cannot.',
+      'Our unique combination of web, e-commerce, IT, and electronics engineering allows us to tackle complex, multi-faceted projects that other single-focus tech agencies cannot.',
   },
   {
     icon: <FaUserCheck size={40} className='text-cyan' />,
@@ -26,19 +26,19 @@ const features = [
     icon: <FaLightbulb size={40} className='text-cyan' />,
     title: 'Strategic & Technical Insight',
     description:
-      'I go beyond coding to provide strategic consultation, ensuring the technology I build aligns perfectly with your business goals.',
+      'We go beyond coding to provide strategic consultation, ensuring the technology we build aligns perfectly with your business goals.',
   },
   {
     icon: <FaRocket size={40} className='text-purple' />,
     title: 'Agility & Flexibility',
     description:
-      'As a sole trader, I can adapt quickly to your changing needs, pivot on requirements, and deliver efficient, cost-effective solutions without bureaucratic delays.',
+      'As a sole trader, we can adapt quickly to your changing needs, pivot on requirements, and deliver efficient, cost-effective solutions without bureaucratic delays.',
   },
   {
     icon: <FaBrain size={40} className='text-cyan' />,
     title: 'Product-Led Thinking',
     description:
-      'Through my eKoble operations, I possess firsthand experience in running and scaling e-commerce products, providing invaluable insights for your own online ventures.',
+      'Through our eKoble operations, we possess firsthand experience in running and scaling e-commerce products, providing invaluable insights for your own online ventures.',
   },
 ]
 
@@ -47,7 +47,7 @@ const WhyChooseUs = () => {
     <SectionContainer id='why-choose-us'>
       <h2 className='text-3xl lg:text-4xl font-bold text-center mb-12 lg:mb-16'>
         <span className='bg-gradient-to-r from-cyan to-purple text-transparent bg-clip-text'>
-          Why Choose Bitwise Technologies?
+          Why Choose Bitwize Technologies?
         </span>
       </h2>
       <div className='features-grid'>

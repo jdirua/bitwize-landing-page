@@ -1,40 +1,31 @@
-import React from 'react'
+import SectionContainer from '../layout/SectionContainer'
 
 const About = () => {
   return (
-    <section id='about' className='py-20 bg-deep-space'>
-      <div className='container mx-auto px-4'>
-        <h2 className='text-3xl font-bold text-center mb-8'>
-          <span className='bg-gradient-to-r from-cyan to-purple text-transparent bg-clip-text'>
-            About Bitwize
-          </span>
-        </h2>
-        <div className='max-w-3xl mx-auto text-center text-gray'>
-          <p className='mb-4'>
-            “Bitwize Technologies fuses the precision of bitwise operations with
-            the wisdom of experience and the ingenuity of a wizard. Bitwize
-            manipulate the building blocks of technology to conjure elegant,
-            intelligent solutions—turning raw logic into digital magic for the
-            modern world."
+    <SectionContainer id='about'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
+        <div className='text-center md:text-left'>
+          <h2 className='text-4xl font-bold mb-6 text-cyan'>Who We Are</h2>
+          <p className='text-lg text-gray-300 leading-relaxed mb-4'>
+            BitWize is a collective of passionate developers, designers, and
+            innovators dedicated to pushing the boundaries of technology. We
+            thrive on challenges and are committed to delivering exceptional
+            digital experiences.
           </p>
-          <p className='mb-4'>
-            Established in late 2025 as a sole trading company, I also operate
-            under the trading name e-Koble, which manages the specialized
-            e-commerce product division of the business. This dual-structure
-            allows me to offer focused expertise in both bespoke client projects
-            and my own product offerings. My philosophy is built on technical
-            excellence, strategic insight, and building long-term, collaborative
-            partnerships with my clients.
-          </p>
-          <p className='mb-4'>
-            I have over 10 years of experience in the technology and engineering
-            sector. Im a passionate and solutions-driven professional. I founded
-            Bitwize to provide accessible, expert-level technology services that
-            are often only available from large, expensive firms.
+          <p className='text-lg text-gray-300 leading-relaxed'>
+            Our team&apos;s expertise spans across various domains, allowing us to
+            tackle complex projects with a holistic approach. We believe in
+            continuous learning and are always exploring new horizons to bring
+            our clients the best that technology has to offer.
           </p>
         </div>
+        <div className='flex justify-center'>
+          <div className='w-64 h-64 bg-purple rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg'>
+            BitWize
+          </div>
+        </div>
       </div>
-    </section>
+    </SectionContainer>
   )
 }
 
