@@ -7,19 +7,25 @@ const portfolioItems = [
     title: 'Industrial Supplies PNG',
     description:
       'We developed a dynamic e-commerce platform and informational website for Industrial Supplies PNG. This comprehensive solution allows them to showcase their company and sell products online, driving business growth and expanding their market reach.',
-    link: '#', // Add project link here
+    link: '/portfolio/coming-soon',
   },
   {
     title: 'Fleetshop',
     description:
       "This is our flagship project, Fleetshop. It's a modern, web-based workshop management application designed for the PNG market. It streamlines operations, manages fleets, and boosts productivity with a clean, intuitive interface built on Next.js, tailored for PNG's unique operational environment.",
-    link: '#', // Add project link here
+    link: '/portfolio/coming-soon',
   },
   {
     title: 'PNG Readymix',
     description:
       "We designed a modern and stylish informational website for PNG Readymix, a leading supplier of construction materials in Papua New Guinea. The new site enhances their brand's digital presence, reflecting their decades of industry leadership with a fresh, engaging, and professional online platform.",
-    link: '#', // Add project link here
+    link: 'https://png-rmc-78938734-853a8.web.app/',
+  },
+  {
+    title: 'Surcon Limited',
+    description:
+      'We created a comprehensive digital platform for Surcon Limited, an emerging surveying and engineering firm in Papua New Guinea, based in Lae. The solution streamlines their land development projects and enhances their professional services, reinforcing their position as a key player in the region’s construction and land development sectors.',
+    link: 'https://surcon-77193334-ffc30.web.app/',
   },
 ]
 
